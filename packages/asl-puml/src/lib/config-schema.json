@@ -1,0 +1,211 @@
+{
+  "$id": "https://github.com/massfords/asl-puml#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Config",
+  "type": "object",
+  "$defs": {
+    "color": {
+      "type": "string",
+      "pattern": "^#([a-zA-Z]+)|[\\da-fA-F]{2,6}$"
+    },
+    "compensation": {
+      "title": "Compensation Config",
+      "type": "object",
+      "properties": {
+        "pattern": {
+          "type": "string"
+        },
+        "color": {
+          "$ref": "#/$defs/color"
+        }
+      },
+      "required": ["pattern", "color"],
+      "additionalProperties": false
+    },
+    "stateStyle": {
+      "title": "State Style",
+      "type": "object",
+      "properties": {
+        "pattern": {
+          "type": "string"
+        },
+        "color": {
+          "$ref": "#/$defs/color"
+        },
+        "deadPath": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": ["pattern", "color"],
+      "additionalProperties": false
+    },
+    "line": {
+      "title": "Line Config",
+      "type": "object",
+      "required": ["color"],
+      "properties": {
+        "bold": {
+          "enum": [
+            true
+          ]
+        },
+        "color": {
+          "$ref": "#/$defs/color"
+        }
+      },
+      "additionalProperties": false
+    },
+    "state": {
+      "title": "State Config",
+      "type": "object",
+      "required": ["BackgroundColor"],
+      "properties": {
+        "BackgroundColor": {
+          "$ref": "#/$defs/color"
+        },
+        "FontColor": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/color"
+            },
+            {
+              "enum": ["automatic"]
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "containerState": {
+      "type": "object",
+      "required": ["BackgroundColor"],
+      "properties": {
+        "BackgroundColor": {
+          "$ref": "#/$defs/color"
+        }
+      },
+      "additionalProperties": false
+    },
+    "noteConfig": {
+      "type": "object",
+      "required": ["width", "side"],
+      "properties": {
+        "width": {
+          "type": "integer"
+        },
+        "side": {
+          "enum": ["left", "right"]
+        }
+      }
+    },
+    "theme": {
+      "type": "object",
+      "required": ["compensation", "lines", "skinparams", "states", "compositeStates", "comments"],
+      "properties": {
+        "compensation": {
+          "$ref": "#/$defs/compensation"
+        },
+        "wrapStateNamesAt": {
+          "type": "integer",
+          "minimum": 10
+        },
+        "compositeStates": {
+          "type": "object",
+          "patternProperties": {
+            "^.+$": {
+              "type": "string"
+            }
+          }
+        },
+        "excludeCatchComment" : {
+          "type": "boolean"
+        },
+        "comments" : {
+          "type": "object",
+          "patternProperties": {
+            "^.+$": {
+              "$ref": "#/$defs/noteConfig"
+            }
+          }
+        },
+        "lines": {
+          "type": "object",
+          "required": ["fromCatch", "toFail"],
+          "properties": {
+            "fromCatch": {
+              "$ref": "#/$defs/line"
+            },
+            "toFail": {
+              "$ref": "#/$defs/line"
+            },
+            "active": {
+              "$ref": "#/$defs/line"
+            },
+            "deadPath": {
+              "$ref": "#/$defs/line"
+            }
+          },
+          "additionalProperties": false
+        },
+        "skinparams": {
+          "type": "object",
+          "required": ["ArrowColor"],
+          "properties": {
+            "ArrowColor": {
+              "$ref": "#/$defs/color"
+            }
+          },
+          "additionalProperties": false
+        },
+        "states": {
+          "type": "object",
+          "required": ["Pass", "Task", "Choice", "Wait", "Succeed", "Fail", "Parallel", "Map"],
+          "properties": {
+            "Choice": {
+              "$ref": "#/$defs/state"
+            },
+            "Fail": {
+              "$ref": "#/$defs/state"
+            },
+            "Map": {
+              "$ref": "#/$defs/state"
+            },
+            "Parallel": {
+              "$ref": "#/$defs/state"
+            },
+            "Pass": {
+              "$ref": "#/$defs/state"
+            },
+            "Succeed": {
+              "$ref": "#/$defs/state"
+            },
+            "Task": {
+              "$ref": "#/$defs/state"
+            },
+            "Wait": {
+              "$ref": "#/$defs/state"
+            }
+          },
+          "additionalProperties": false
+        },
+        "stateStyles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stateStyle"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "theme": {
+      "$ref": "#/$defs/theme"
+    }
+  },
+  "required": ["theme"],
+  "additionalProperties": false
+}

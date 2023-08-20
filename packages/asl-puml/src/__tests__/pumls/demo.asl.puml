@@ -1,0 +1,70 @@
+@startuml
+hide empty description
+skinparam ArrowColor #black
+skinparam state {
+
+    BackgroundColor<<Choice>> #whitesmoke
+    FontColor<<Choice>> automatic
+
+    BackgroundColor<<aslFail>> #red
+    FontColor<<aslFail>> automatic
+
+    BackgroundColor<<aslPass>> #whitesmoke
+    FontColor<<aslPass>> automatic
+
+    BackgroundColor<<aslTask>> #lightblue
+    FontColor<<aslTask>> automatic
+    BackgroundColor<<Compensate>> #orange
+}
+state "Fulfilling" as compositeState1 ##[dashed] {
+state "FulfillWidget" as state4<<aslTask>>
+state "FulfillAsk" as state5<<aslTask>>
+state "FulfillFundAccount" as state6<<aslTask>>
+}
+state "Dispatch by type of item" as state1<<Choice>>
+state "Error" as state8<<aslFail>>
+state "MarkOrderAsFulfilled" as state7<<aslTask>>
+state "PrepareFulfillAskRequest" as state3<<aslPass>>
+state "PrepareFulfillWidgetRequest" as state2<<aslPass>>
+state "PublishCompensate" as state10<<Compensate>>
+note left
+    order will be canceled,
+    payments refunded, and
+    inventory released
+end note
+state "PublishOrderComplete" as state9<<aslTask>>
+[*] --> state1
+state1 --> state2
+note on link
+widgets
+end note
+state1 --> state3
+note on link
+market purchase
+end note
+state1 --> state6
+note on link
+fund account
+end note
+state1 -[#pink]-> state8
+state2 --> state4
+state3 --> state5
+state4 --> state7
+state4 -[bold,#orange]-> state9
+note on link
+Widget fulfillment
+errors handled
+elsewhere
+end note
+state5 --> state7
+state5 -[bold,#orange]-> state10
+state6 --> state7
+state6 -[bold,#orange]-> state10
+state7 --> state9
+state7 -[#pink]-> state8
+state8 -[#pink]-> [*]
+state9 --> [*]
+state9 -[#pink]-> state8
+state10 --> [*]
+state10 -[#pink]-> state8
+@enduml
