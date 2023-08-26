@@ -48,6 +48,9 @@ importers:
 
   packages/asl-mock:
     dependencies:
+      '@asl-tools/asl-mock-types':
+        specifier: workspace:*
+        version: link:../asl-mock-types
       '@asl-tools/asl-puml':
         specifier: workspace:*
         version: link:../asl-puml
@@ -94,6 +97,9 @@ importers:
       '@asl-tools/asl-mock':
         specifier: workspace:*
         version: link:../asl-mock
+      '@asl-tools/asl-mock-types':
+        specifier: workspace:*
+        version: link:../asl-mock-types
     devDependencies:
       '@toolchain/eslint-config':
         specifier: workspace:*
@@ -107,6 +113,21 @@ importers:
       '@types/node':
         specifier: 20.5.6
         version: 20.5.6
+
+  packages/asl-mock-types:
+    devDependencies:
+      '@toolchain/eslint-config':
+        specifier: workspace:*
+        version: link:../../toolchain/eslint-config
+      '@toolchain/ts-config':
+        specifier: workspace:*
+        version: link:../../toolchain/ts-config
+      '@toolchain/vitest-config':
+        specifier: workspace:*
+        version: link:../../toolchain/vitest-config
+      '@types/node':
+        specifier: 20.3.1
+        version: 20.3.1
 
   packages/asl-path-validator:
     dependencies:
@@ -1817,6 +1838,10 @@ packages:
   /@types/node@12.20.55:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
     dev: false
+
+  /@types/node@20.3.1:
+    resolution: {integrity: sha512-EhcH/wvidPy1WeML3TtYFGR83UzjxeWRen9V402T8aUGYsCHOmfoisV3ZSg03gAFIbLq8TnWOJ0f4cALtnSEUg==}
+    dev: true
 
   /@types/node@20.4.7:
     resolution: {integrity: sha512-bUBrPjEry2QUTsnuEjzjbS7voGWCc30W0qzgMf90GPeDGFRakvrz47ju+oqDAKCXLUCe39u57/ORMl/O/04/9g==}

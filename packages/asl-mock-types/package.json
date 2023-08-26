@@ -1,0 +1,22 @@
+{
+  "name": "@asl-tools/asl-mock-types",
+  "description": "Typescript types for the aws mock config file",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "del dist && tsc",
+    "lint": "eslint .",
+    "clean": "del .turbo dist coverage"
+  },
+  "devDependencies": {
+    "@toolchain/eslint-config": "workspace:*",
+    "@toolchain/ts-config": "workspace:*",
+    "@toolchain/vitest-config": "workspace:*",
+    "@types/node": "20.3.1"
+  }
+}
