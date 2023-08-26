@@ -19,7 +19,7 @@
     "@toolchain/eslint-config": "workspace:*",
     "@toolchain/ts-config": "workspace:*",
     "@toolchain/vitest-config": "workspace:*",
-    "@types/node": "20.3.1"
+    "@types/node": "20.5.6"
   },
   "dependencies": {
     "@asl-tools/asl-mock": "workspace:*"
