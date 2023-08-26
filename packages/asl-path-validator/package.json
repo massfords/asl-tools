@@ -1,0 +1,38 @@
+{
+  "name": "@asl-tools/asl-path-validator",
+  "version": "0.0.0",
+  "description": "Validates the path expressions for the Amazon States Language",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "del dist src/generated && pnpm generate && tsc",
+    "lint": "eslint .",
+    "test": "vitest --run",
+    "generate": "mkdirp src/generated && ./node_modules/.bin/peggy -o src/generated/aslPaths.js src/aslPaths.pegjs",
+    "clean": "del .turbo dist coverage src/generated"
+  },
+  "keywords": [
+    "asl",
+    "amazon states language",
+    "aws",
+    "step functions",
+    "state machine"
+  ],
+  "author": "Mark Ford",
+  "license": "MIT",
+  "devDependencies": {
+    "@toolchain/eslint-config": "workspace:*",
+    "@toolchain/ts-config": "workspace:*",
+    "@toolchain/vitest-config": "workspace:*",
+    "@types/node": "20.3.1",
+    "mkdirp": "3.0.1",
+    "peggy": "3.0.2"
+  },
+  "dependencies": {
+    "@asl-tools/must": "workspace:*",
+    "ajv": "8.12.0",
+    "jsonpath-plus": "7.2.0"
+  }
+}

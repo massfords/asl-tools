@@ -1,0 +1,27 @@
+{
+  "name": "@asl-tools/asl-mock-example",
+  "description": "Illustrates testing step functions with mock config",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "del dist && tsc",
+    "generate": "pnpm asl-mock -i src/crm-comment.mock.ts -a src/crm-comment.asl.json",
+    "lint": "eslint .",
+    "test": "vitest --run",
+    "clean": "del .turbo dist coverage src/.asl-puml src/crm-comment.asl.test.ts src/__snapshots__"
+  },
+  "devDependencies": {
+    "@toolchain/eslint-config": "workspace:*",
+    "@toolchain/ts-config": "workspace:*",
+    "@toolchain/vitest-config": "workspace:*",
+    "@types/node": "20.3.1"
+  },
+  "dependencies": {
+    "@asl-tools/asl-mock": "workspace:*"
+  }
+}

@@ -1,0 +1,91 @@
+@startuml
+hide empty description
+skinparam ArrowColor #black
+skinparam state {
+
+    BackgroundColor<<Choice>> #whitesmoke
+    FontColor<<Choice>> automatic
+
+    BackgroundColor<<aslFail>> #red
+    FontColor<<aslFail>> automatic
+
+    BackgroundColor<<aslMap>> #whitesmoke
+
+    BackgroundColor<<aslSucceed>> #green
+    FontColor<<aslSucceed>> automatic
+
+    BackgroundColor<<aslTask>> #lightblue
+    FontColor<<aslTask>> automatic
+
+    BackgroundColor<<aslWait>> #whitesmoke
+    FontColor<<aslWait>> automatic
+    BackgroundColor<<Compensate>> #orange
+    FontColor<<CustomStyle0>> automatic
+    BackgroundColor<<CustomStyle0>> #0070a3
+    FontColor<<CustomStyle1>> automatic
+    BackgroundColor<<CustomStyle1>> #gray
+    FontColor<<CustomStyle2>> automatic
+    BackgroundColor<<CustomStyle2>> #0070a3
+    FontColor<<CustomStyle3>> automatic
+    BackgroundColor<<CustomStyle3>> #0070a3
+    FontColor<<CustomStyle4>> automatic
+    BackgroundColor<<CustomStyle4>> #0070a3
+    FontColor<<CustomStyle5>> automatic
+    BackgroundColor<<CustomStyle5>> #74d4ff
+    FontColor<<CustomStyle6>> automatic
+    BackgroundColor<<CustomStyle6>> #74d4ff
+    FontColor<<CustomStyle7>> automatic
+    BackgroundColor<<CustomStyle7>> #0070a3
+    FontColor<<CustomStyle8>> automatic
+    BackgroundColor<<CustomStyle8>> #0070a3
+    FontColor<<CustomStyle9>> automatic
+    BackgroundColor<<CustomStyle9>> #0070a3
+    FontColor<<CustomStyle10>> automatic
+    BackgroundColor<<CustomStyle10>> #0070a3
+    FontColor<<CustomStyle11>> automatic
+    BackgroundColor<<CustomStyle11>> #74d4ff
+    FontColor<<CustomStyle12>> gray
+    BackgroundColor<<CustomStyle12>> #whitesmoke
+}
+state "Do Fraud Check" as state3<<Choice>>
+state "Initial: Get Customer Status" as state2<<CustomStyle0>>
+state "Initial: Notify Fraudulent \nCustomer" as state10<<CustomStyle12>>
+state "Initial: Notify Invalid Input" as state13<<CustomStyle12>>
+state "Initial: Notify New Order" as state4<<CustomStyle2>>
+state "Initial: Validate Input" as state1<<Choice>>
+state "Order Shipped Successfully" as state12<<CustomStyle11>>
+state "Order Shipping Failed" as state11<<CustomStyle12>>
+state "Reserve: Notify Products \nReserved" as state6<<CustomStyle8>>
+state "Reserve: Products" as state5<<CustomStyle3>> {
+state "Reserve: Product" as state14<<CustomStyle4>>
+state "Choice" as state15<<Choice>>
+state "Successful" as state16<<CustomStyle6>>
+state "Reserve: Notify Delayed" as state17<<CustomStyle7>>
+state "Wait for availability" as state18<<CustomStyle5>>
+}
+state "Ship: Notify Packaging and \nShipping Failed" as state9<<CustomStyle12>>
+state "Ship: Notify Successful \nShipping" as state8<<CustomStyle10>>
+state "Ship: Packaging and Shipping" as state7<<CustomStyle9>>
+[*] --> state1
+state1 -[#lightgray]-> state13
+state1 --> state2
+state2 --> state3
+state3 -[#lightgray]-> state10
+state3 --> state4
+state4 --> state5
+state5 --> state6
+state6 --> state7
+state7 --> state8
+state7 -[#lightgray]-> state9
+state8 --> state12
+state9 -[#lightgray]-> state11
+state10 -[#lightgray]-> state11
+state11 -[#lightgray]-> [*]
+state12 --> [*]
+state13 -[#lightgray]-> state11
+state14 --> state15
+state15 --> state17
+state15 --> state16
+state17 --> state18
+state18 --> state14
+@enduml

@@ -1,0 +1,42 @@
+@startuml
+hide empty description
+skinparam ArrowColor #black
+skinparam state {
+
+    BackgroundColor<<Choice>> #whitesmoke
+    FontColor<<Choice>> automatic
+
+    BackgroundColor<<aslPass>> #whitesmoke
+    FontColor<<aslPass>> automatic
+
+    BackgroundColor<<aslTask>> #lightblue
+    FontColor<<aslTask>> automatic
+
+    BackgroundColor<<aslWait>> #whitesmoke
+    FontColor<<aslWait>> automatic
+    BackgroundColor<<Compensate>> #orange
+}
+state "confirm_service_name" as state1<<Choice>>
+state "default_service_name" as state2<<aslPass>>
+state "get_athena_execution_status" as state7<<aslTask>>
+state "get_athena_query" as state4<<aslPass>>
+state "get_query_results" as state9<<aslTask>>
+state "handle_input" as state3<<aslPass>>
+state "is_query_finished" as state8<<Choice>>
+state "prepare_output_success" as state10<<aslPass>>
+state "start_athena_query" as state5<<aslTask>>
+state "wait_to_query" as state6<<aslWait>>
+[*] --> state1
+state1 --> state3
+state1 --> state2
+state2 --> state3
+state3 --> state4
+state4 --> state5
+state5 --> state6
+state6 --> state7
+state7 --> state8
+state8 --> state6
+state8 --> state9
+state9 --> state10
+state10 --> [*]
+@enduml

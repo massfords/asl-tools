@@ -1,0 +1,46 @@
+{
+  "name": "@asl-tools/asl-mock",
+  "description": "Types and helpers for AWS MockConfigFile",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "bin": {
+    "asl-mock": "./dist/asl-mock.js"
+  },
+  "scripts": {
+    "build": "del dist && tsc",
+    "lint": "eslint .",
+    "test": "vitest --run",
+    "clean": "del .turbo dist coverage"
+  },
+  "keywords": [
+    "asl",
+    "amazon states language",
+    "mock config",
+    "testing",
+    "aws",
+    "step functions",
+    "state machine"
+  ],
+  "author": "Mark Ford",
+  "license": "MIT",
+  "devDependencies": {
+    "@toolchain/eslint-config": "workspace:*",
+    "@toolchain/ts-config": "workspace:*",
+    "@toolchain/vitest-config": "workspace:*",
+    "@types/eslint": "8.44.2",
+    "@types/node": "20.3.1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sfn": "3.395.0",
+    "@asl-tools/asl-puml": "workspace:*",
+    "asl-validator": "3.8.0",
+    "commander": "11.0.0",
+    "jsonpath-plus": "7.2.0",
+    "prettier": "3.0.2",
+    "testcontainers": "10.2.1",
+    "vitest": "0.34.2"
+  }
+}

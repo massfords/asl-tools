@@ -1,0 +1,246 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario CustomValidationFailedCatchTest > Check Address 1`] = `
+{
+  "FunctionName": "\${CheckAddressFunctionArn}",
+  "Payload": {
+    "city": "Columbus",
+    "state": "OH",
+    "street": "123 Main St",
+    "zip": "43219",
+  },
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario CustomValidationFailedCatchTest > Check Identity 1`] = `
+{
+  "FunctionName": "\${CheckIdentityFunctionArn}",
+  "Payload": {
+    "email": "jdoe@example.com",
+    "ssn": "123-45-6789",
+  },
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario CustomValidationFailedCatchTest > CustomValidationFailed 1`] = `
+{
+  "Entries": [
+    {
+      "Detail": {
+        "Message": "Validation Failed",
+      },
+      "DetailType": "ValidationFailed",
+      "EventBusName": "default",
+      "Source": "LocalTestingSource",
+    },
+  ],
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario HappyPathTest > Add to FollowUp 1`] = `
+{
+  "Item": {
+    "PK": {
+      "S": "jdoe@example.com",
+    },
+  },
+  "TableName": "\${FollowUpTableName}",
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario HappyPathTest > Check Address 1`] = `
+{
+  "FunctionName": "\${CheckAddressFunctionArn}",
+  "Payload": {
+    "city": "Columbus",
+    "state": "OH",
+    "street": "123 Main St",
+    "zip": "43219",
+  },
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario HappyPathTest > Check Identity 1`] = `
+{
+  "FunctionName": "\${CheckIdentityFunctionArn}",
+  "Payload": {
+    "email": "jdoe@example.com",
+    "ssn": "123-45-6789",
+  },
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario HappyPathTest > CustomerAddedToFollowup 1`] = `
+{
+  "Entries": [
+    {
+      "Detail": {
+        "EmailAddress": "jdoe@example.com",
+        "Message": "Customer Added for follow up",
+      },
+      "DetailType": "CustomerAdded",
+      "EventBusName": "default",
+      "Source": "LocalTestingSource",
+    },
+  ],
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario HappyPathTest > DetectSentiment 1`] = `
+{
+  "LanguageCode": "en",
+  "Text": "I am glad to sign-up for this service. Looking forward to different options.",
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario NegativeSentimentTest > Check Address 1`] = `
+{
+  "FunctionName": "\${CheckAddressFunctionArn}",
+  "Payload": {
+    "city": "Columbus",
+    "state": "OH",
+    "street": "123 Main St",
+    "zip": "43219",
+  },
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario NegativeSentimentTest > Check Identity 1`] = `
+{
+  "FunctionName": "\${CheckIdentityFunctionArn}",
+  "Payload": {
+    "email": "jdoe@example.com",
+    "ssn": "123-45-6789",
+  },
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario NegativeSentimentTest > DetectSentiment 1`] = `
+{
+  "LanguageCode": "en",
+  "Text": "I am glad to sign-up for this service. Looking forward to different options.",
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario NegativeSentimentTest > NegativeSentimentDetected 1`] = `
+{
+  "Entries": [
+    {
+      "Detail": {
+        "Data": {
+          "address": {
+            "city": "Columbus",
+            "state": "OH",
+            "street": "123 Main St",
+            "zip": "43219",
+          },
+          "comments": "I am glad to sign-up for this service. Looking forward to different options.",
+          "firstname": "Jane",
+          "identity": {
+            "email": "jdoe@example.com",
+            "ssn": "123-45-6789",
+          },
+          "lastname": "Doe",
+        },
+        "Message": "Negative Sentiment Detected",
+      },
+      "DetailType": "NegativeSentiment",
+      "EventBusName": "default",
+      "Source": "LocalTestingSource",
+    },
+  ],
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario RetryOnServiceExceptionTest > Add to FollowUp 1`] = `
+{
+  "Item": {
+    "PK": {
+      "S": "jdoe@example.com",
+    },
+  },
+  "TableName": "\${FollowUpTableName}",
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario RetryOnServiceExceptionTest > Check Address 1`] = `
+{
+  "FunctionName": "\${CheckAddressFunctionArn}",
+  "Payload": {
+    "city": "Columbus",
+    "state": "OH",
+    "street": "123 Main St",
+    "zip": "43219",
+  },
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario RetryOnServiceExceptionTest > Check Identity 1`] = `
+{
+  "FunctionName": "\${CheckIdentityFunctionArn}",
+  "Payload": {
+    "email": "jdoe@example.com",
+    "ssn": "123-45-6789",
+  },
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario RetryOnServiceExceptionTest > CustomerAddedToFollowup 1`] = `
+{
+  "Entries": [
+    {
+      "Detail": {
+        "EmailAddress": "jdoe@example.com",
+        "Message": "Customer Added for follow up",
+      },
+      "DetailType": "CustomerAdded",
+      "EventBusName": "default",
+      "Source": "LocalTestingSource",
+    },
+  ],
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario RetryOnServiceExceptionTest > DetectSentiment 1`] = `
+{
+  "LanguageCode": "en",
+  "Text": "I am glad to sign-up for this service. Looking forward to different options.",
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario ValidationExceptionCatchTest > Check Address 1`] = `
+{
+  "FunctionName": "\${CheckAddressFunctionArn}",
+  "Payload": {
+    "city": "Columbus",
+    "state": "OH",
+    "street": "123 Main St",
+    "zip": "43219",
+  },
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario ValidationExceptionCatchTest > Check Identity 1`] = `
+{
+  "FunctionName": "\${CheckIdentityFunctionArn}",
+  "Payload": {
+    "email": "jdoe@example.com",
+    "ssn": "123-45-6789",
+  },
+}
+`;
+
+exports[`tests for crm-comment.asl.json > mock config scenarios > scenario ValidationExceptionCatchTest > ValidationException 1`] = `
+{
+  "Entries": [
+    {
+      "Detail": {
+        "Message": "Validation Exception",
+      },
+      "DetailType": "ValidationException",
+      "EventBusName": "default",
+      "Source": "LocalTestingSource",
+    },
+  ],
+}
+`;
