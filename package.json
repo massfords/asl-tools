@@ -9,7 +9,8 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean",
-    "format": "prettier --write '**/*.{ts,js,cts,mts,cjs,mjs,md,yaml,json}'"
+    "format": "prettier --write '**/*.{ts,js,cts,mts,cjs,mjs,md,yaml,json}'",
+    "release": "changeset publish"
   },
   "engines": {
     "node": ">=18.0.0"
