@@ -2,7 +2,6 @@ import fs from 'fs'
 import os from 'os'
 
 import type { AslDefinition } from '@asl-tools/asl-puml'
-import { must } from '@asl-tools/asl-puml'
 import type { DescribeExecutionOutput, HistoryEvent } from '@aws-sdk/client-sfn'
 import {
   CreateStateMachineCommand,
@@ -21,6 +20,7 @@ import type { ExpectStatic } from 'vitest'
 
 import { log } from '../logger.js'
 
+import { must } from './must.js'
 import type { MockConfigFile } from './types.js'
 import { writeScenarioPuml } from './write-scenario-puml.js'
 

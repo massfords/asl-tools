@@ -1,7 +1,7 @@
-import { must } from '@asl-tools/must'
 import { describe, expect, it } from 'vitest'
 
 import { validatePath } from '../index.js'
+import { must } from '../must.js'
 import { AslPathContext } from '../types.js'
 
 describe('unit tests for the parser', () => {

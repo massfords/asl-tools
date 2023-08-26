@@ -2,12 +2,13 @@ import fs from 'fs'
 
 import path from 'path'
 
-import { must } from '@asl-tools/must'
 import Ajv from 'ajv'
 
 import { JSONPath } from 'jsonpath-plus'
 
 import { registerAll } from '../ajv.js'
+
+import { must } from '../must.js'
 
 import example from './json/example-schema.json'
 import payloadTemplateSchema from './json/payload-template.json'
