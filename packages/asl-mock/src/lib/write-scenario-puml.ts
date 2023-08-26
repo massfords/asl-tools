@@ -1,11 +1,10 @@
 import fs from 'fs'
 import path from 'path'
 
+import { asl_to_puml, must } from '@asl-tools/asl-puml'
+import type { AslDefinition, UserSpecifiedConfig } from '@asl-tools/asl-puml'
 import type { HistoryEvent } from '@aws-sdk/client-sfn'
 import { HistoryEventType } from '@aws-sdk/client-sfn'
-
-import { asl_to_puml, must } from '@packages/asl-puml'
-import type { AslDefinition, UserSpecifiedConfig } from '@packages/asl-puml'
 
 type StateExecution = {
   // stateEnteredEventDetails.name

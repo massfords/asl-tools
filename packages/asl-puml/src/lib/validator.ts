@@ -1,3 +1,5 @@
+import aslValidator from 'asl-validator'
+
 import type { AslDefinition } from './types.js'
 
 export type ValidatorFunction = (definition: AslDefinition) => {
@@ -5,13 +7,9 @@ export type ValidatorFunction = (definition: AslDefinition) => {
   errorsText: (sep: string) => string
 }
 
-const validator: ValidatorFunction =
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  require('asl-validator') as ValidatorFunction
-
 export type ASLValidator = (definition: AslDefinition) => asserts definition
-export const aslValidator: ASLValidator = (definition: AslDefinition): asserts definition => {
-  const result = validator(definition)
+export const aslValidatorImpl: ASLValidator = (definition: AslDefinition): asserts definition => {
+  const result = aslValidator(definition)
   if (!result.isValid) {
     throw Error(`definition is invalid:${result.errorsText('\n')}`)
   }

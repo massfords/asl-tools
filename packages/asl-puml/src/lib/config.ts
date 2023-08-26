@@ -1,6 +1,6 @@
 import Ajv from 'ajv'
 
-import config from './config-schema.json'
+import config from './config-schema.json' assert { type: 'json' }
 import type { Config } from './generated/config.js'
 import { DefaultConfig } from './types.js'
 import type { UserSpecifiedConfig } from './types.js'

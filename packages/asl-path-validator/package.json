@@ -1,6 +1,6 @@
 {
-  "name": "@packages/asl-path-validator",
-  "version": "0.12.0",
+  "name": "@asl-tools/asl-path-validator",
+  "version": "0.0.0",
   "description": "Validates the path expressions for the Amazon States Language",
   "type": "module",
   "exports": {
@@ -31,7 +31,7 @@
     "peggy": "3.0.2"
   },
   "dependencies": {
-    "@packages/must": "workspace:*",
+    "@asl-tools/must": "workspace:*",
     "ajv": "8.12.0",
     "jsonpath-plus": "7.2.0"
   }

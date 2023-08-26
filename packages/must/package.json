@@ -1,6 +1,6 @@
 {
-  "name": "@packages/must",
-  "description": "",
+  "name": "@asl-tools/must",
+  "description": "Asserts a condition and logs error before throwing",
   "version": "0.0.0",
   "license": "UNLICENSED",
   "private": true,

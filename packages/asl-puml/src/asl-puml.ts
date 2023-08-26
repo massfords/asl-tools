@@ -5,14 +5,14 @@ import { footer } from './lib/footer.js'
 import { theme } from './lib/theme.js'
 import { transitions } from './lib/transitions.js'
 import type { AslDefinition, UserSpecifiedConfig } from './lib/types.js'
-import { aslValidator } from './lib/validator.js'
+import { aslValidatorImpl } from './lib/validator.js'
 
 export const asl_to_puml = (
   definition: AslDefinition,
   userSpecifiedConfig?: UserSpecifiedConfig | null,
 ): { isValid: true; puml: string } | { isValid: false; message: string } => {
   try {
-    aslValidator(definition)
+    aslValidatorImpl(definition)
   } catch (err: unknown) {
     const castErr: { message?: string } = err as { message?: string }
     return {

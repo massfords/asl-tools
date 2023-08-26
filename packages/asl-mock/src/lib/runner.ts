@@ -1,6 +1,8 @@
 import fs from 'fs'
 import os from 'os'
 
+import type { AslDefinition } from '@asl-tools/asl-puml'
+import { must } from '@asl-tools/asl-puml'
 import type { DescribeExecutionOutput, HistoryEvent } from '@aws-sdk/client-sfn'
 import {
   CreateStateMachineCommand,
@@ -16,10 +18,6 @@ import type { StartedTestContainer, TestContainer } from 'testcontainers'
 import { GenericContainer } from 'testcontainers'
 
 import type { ExpectStatic } from 'vitest'
-
-import type { AslDefinition } from '@packages/asl-puml'
-
-import { must } from '@packages/asl-puml'
 
 import { log } from '../logger.js'
 
@@ -113,7 +111,7 @@ export class AslTestRunner<
   private async initClient(): Promise<void> {
     log('init client')
     this.startedContainer = await this.testContainer.start()
-    console.log('container started')
+    log('container started')
     const mappedPort = this.startedContainer.getMappedPort(port)
     const endpoint = `http://localhost:${mappedPort}`
     this.client = new SFNClient({

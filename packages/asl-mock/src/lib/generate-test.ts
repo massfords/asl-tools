@@ -1,20 +1,14 @@
+import { must } from '@asl-tools/asl-puml'
 import { ESLint } from 'eslint'
 import { format } from 'prettier'
-import ts, {
-  ScriptKind,
-  ScriptTarget,
-  SyntaxKind,
-  createSourceFile,
-  isVariableStatement,
-  sys,
-} from 'typescript'
+import ts from 'typescript'
 import type { ObjectLiteralExpression, PropertyName } from 'typescript'
-
-import { must } from '@packages/asl-puml'
 
 interface StateMachines {
   [key: string]: string[]
 }
+
+const { ScriptKind, ScriptTarget, SyntaxKind, createSourceFile, isVariableStatement, sys } = ts
 
 // Function to extract the contents of the TestCases field
 const extractTestCasesKeys = (node: ts.ObjectLiteralExpression): string[] => {

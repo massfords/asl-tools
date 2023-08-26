@@ -1,5 +1,5 @@
 {
-  "name": "@packages/asl-mock",
+  "name": "@asl-tools/asl-mock",
   "description": "Types and helpers for AWS MockConfigFile",
   "version": "0.0.0",
   "type": "module",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-sfn": "3.395.0",
-    "@packages/asl-puml": "workspace:*",
+    "@asl-tools/asl-puml": "workspace:*",
     "asl-validator": "3.8.0",
     "commander": "11.0.0",
     "jsonpath-plus": "7.2.0",

@@ -1,4 +1,4 @@
-import type { MockConfigFile } from '@packages/asl-mock'
+import type { MockConfigFile } from '@asl-tools/asl-mock'
 
 export type StateMachineNames = 'crm-comment'
 

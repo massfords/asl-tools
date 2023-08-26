@@ -1,6 +1,5 @@
+import { must } from '@asl-tools/must'
 import { describe, expect, it } from 'vitest'
-
-import { must } from '@packages/must'
 
 import { validatePath } from '../index.js'
 import { AslPathContext } from '../types.js'

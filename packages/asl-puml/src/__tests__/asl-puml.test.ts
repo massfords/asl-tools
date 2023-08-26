@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest'
 import { asl_to_puml } from '../index.js'
 import { must } from '../lib/must.js'
 import type { AslDefinition, UserSpecifiedConfig } from '../lib/types.js'
-import { aslValidator } from '../lib/validator.js'
+import { aslValidatorImpl } from '../lib/validator.js'
 
 describe('unit tests for generating puml diagrams', () => {
   const dirname = new URL('.', import.meta.url).pathname
@@ -15,7 +15,7 @@ describe('unit tests for generating puml diagrams', () => {
     const def: AslDefinition = JSON.parse(
       fs.readFileSync(path.join(dirname, 'definitions', name), 'utf-8'),
     ) as AslDefinition
-    aslValidator(def)
+    aslValidatorImpl(def)
     return def
   }
 

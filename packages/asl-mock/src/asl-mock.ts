@@ -67,7 +67,7 @@ async function generateTestFile(): Promise<void> {
       mockConfigSrcFile: `./${path.parse(path.basename(opts.input)).name}`,
       mockConfigTypeArgs,
       mockConfig: decl,
-      aslTestRunnerPath: 'asl-mock',
+      aslTestRunnerPath: '@asl-tools/asl-mock',
       esm: opts.esm,
       flatEslint: opts.flat,
     })
