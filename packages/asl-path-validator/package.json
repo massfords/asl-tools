@@ -31,7 +31,6 @@
     "peggy": "3.0.2"
   },
   "dependencies": {
-    "@asl-tools/must": "workspace:*",
     "ajv": "8.12.0",
     "jsonpath-plus": "7.2.0"
   }

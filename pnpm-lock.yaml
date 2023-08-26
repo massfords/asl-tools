@@ -110,9 +110,6 @@ importers:
 
   packages/asl-path-validator:
     dependencies:
-      '@asl-tools/must':
-        specifier: workspace:*
-        version: link:../must
       ajv:
         specifier: 8.12.0
         version: 8.12.0
@@ -172,21 +169,6 @@ importers:
       json-schema-to-typescript:
         specifier: 13.0.2
         version: 13.0.2
-
-  packages/must:
-    devDependencies:
-      '@toolchain/eslint-config':
-        specifier: workspace:*
-        version: link:../../toolchain/eslint-config
-      '@toolchain/ts-config':
-        specifier: workspace:*
-        version: link:../../toolchain/ts-config
-      '@toolchain/vitest-config':
-        specifier: workspace:*
-        version: link:../../toolchain/vitest-config
-      '@types/node':
-        specifier: 20.3.1
-        version: 20.3.1
 
   toolchain/eslint-config:
     dependencies:

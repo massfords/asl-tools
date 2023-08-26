@@ -1,8 +1,9 @@
-import { must } from '@asl-tools/asl-puml'
 import { ESLint } from 'eslint'
 import { format } from 'prettier'
 import ts from 'typescript'
 import type { ObjectLiteralExpression, PropertyName } from 'typescript'
+
+import { must } from './must.js'
 
 interface StateMachines {
   [key: string]: string[]
