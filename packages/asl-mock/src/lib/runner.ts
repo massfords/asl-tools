@@ -1,6 +1,7 @@
 import fs from 'fs'
 import os from 'os'
 
+import type { MockConfigFile } from '@asl-tools/asl-mock-types'
 import type { AslDefinition } from '@asl-tools/asl-puml'
 import type { DescribeExecutionOutput, HistoryEvent } from '@aws-sdk/client-sfn'
 import {
@@ -21,7 +22,6 @@ import type { ExpectStatic } from 'vitest'
 import { log } from '../logger.js'
 
 import { must } from './must.js'
-import type { MockConfigFile } from './types.js'
 import { writeScenarioPuml } from './write-scenario-puml.js'
 
 const delay = async (message: string, time: number): Promise<void> => {

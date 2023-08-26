@@ -1,29 +1,29 @@
-type MockedResponseNumber = string;
+type MockedResponseNumber = string
 export type ASLErrorName =
-  | "States.BranchFailed"
-  | "States.DataLimitExceeded"
-  | "States.ExceedToleratedFailureThreshold"
-  | "States.HeartbeatTimeout"
-  | "States.IntrinsicFailure"
-  | "States.ItemReaderFailed"
-  | "States.NoChoiceMatched"
-  | "States.ParameterPathFailure"
-  | "States.Permissions"
-  | "States.ResultPathMatchFailure"
-  | "States.ResultWriterFailed"
-  | "States.Runtime"
-  | "States.TaskFailed"
-  | "States.Timeout"
-  | "Lambda.AWSLambdaException"
-  | "Lambda.SdkClientException"
-  | "Lambda.ServiceException";
+  | 'States.BranchFailed'
+  | 'States.DataLimitExceeded'
+  | 'States.ExceedToleratedFailureThreshold'
+  | 'States.HeartbeatTimeout'
+  | 'States.IntrinsicFailure'
+  | 'States.ItemReaderFailed'
+  | 'States.NoChoiceMatched'
+  | 'States.ParameterPathFailure'
+  | 'States.Permissions'
+  | 'States.ResultPathMatchFailure'
+  | 'States.ResultWriterFailed'
+  | 'States.Runtime'
+  | 'States.TaskFailed'
+  | 'States.Timeout'
+  | 'Lambda.AWSLambdaException'
+  | 'Lambda.SdkClientException'
+  | 'Lambda.ServiceException'
 
 // Return is represented as a field of the MockedResponse objects. It specifies the
 // successful result of a mocked Task state.
 // cited from: https://docs.aws.amazon.com/step-functions/latest/dg/sfn-local-mock-cfg-file.html#mock-cfg-sm-sect
 export type MockedReturn<T = unknown> = {
-  Return: T;
-};
+  Return: T
+}
 
 // Throw is represented as a field of the MockedResponse objects. It specifies the error
 // output of a failed Task. The value of Throw must be an object containing an Error
@@ -33,21 +33,21 @@ export type MockedReturn<T = unknown> = {
 // cited from: https://docs.aws.amazon.com/step-functions/latest/dg/sfn-local-mock-cfg-file.html#mock-cfg-sm-sect
 export type MockedThrow<
   ErrorName extends string = ASLErrorName,
-  ErrorCause extends string = string
+  ErrorCause extends string = string,
 > = {
-  Throw: { Error: ErrorName; Cause: ErrorCause };
-};
+  Throw: { Error: ErrorName; Cause: ErrorCause }
+}
 
 export type MockedResponseBehavior<CustomErrorTypes extends string = string> =
   | MockedReturn
-  | MockedThrow<ASLErrorName | CustomErrorTypes>;
+  | MockedThrow<ASLErrorName | CustomErrorTypes>
 
 export type MockConfigFile<
   StateMachineName extends string = string,
   TestCaseName extends string = string,
   StateName extends string = string,
   MockedResponseName extends string = string,
-  CustomErrorTypes extends string = string
+  CustomErrorTypes extends string = string,
 > = {
   // The StateMachines object defines which state machines will use
   // mocked service integrations. The configuration for each state
@@ -65,11 +65,9 @@ export type MockConfigFile<
       // states in the state machine.
       // see AWS docs link at top for src
       // cited from: https://docs.aws.amazon.com/step-functions/latest/dg/sfn-local-mock-cfg-file.html#mock-cfg-sm-sect
-      TestCases: Partial<
-        Record<TestCaseName, Partial<Record<StateName, MockedResponseName>>>
-      >;
+      TestCases: Partial<Record<TestCaseName, Partial<Record<StateName, MockedResponseName>>>>
     }
-  >;
+  >
   // MockedResponses is an object containing multiple mocked response objects with
   // unique field names. A mocked response object defines the successful result or
   // error output for each invocation of a mocked Task state. You specify the
@@ -85,5 +83,5 @@ export type MockConfigFile<
   MockedResponses: Record<
     MockedResponseName,
     Record<MockedResponseNumber, MockedResponseBehavior<CustomErrorTypes>>
-  >;
-};
+  >
+}
