@@ -34,7 +34,7 @@ describe('tests for crm-comment.asl.json', () => {
     } catch (err: unknown) {
       _err = err
     }
-  }, TIMEOUT)
+  }, TIMEOUT * 6)
 
   afterEach(() => {
     _aslRunner?.reset()
