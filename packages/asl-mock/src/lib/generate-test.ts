@@ -172,7 +172,7 @@ describe("tests for ${aslFileName}", () => {
     _aslRunner = await AslTestRunner.createRunner${optionalTypeArgs}(${mockConfig}, {
       "${aslFileStem}": path.join(
         ${esm ? `new URL('.', import.meta.url).pathname` : '__dirname'},
-        "${aslSourcePath}"
+        "${aslSourcePath.split('/').slice(-1)[0]}"
       ),
     });
   });
