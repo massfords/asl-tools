@@ -15,7 +15,7 @@ expression if it's valid. Additional checks are performed if necessary to limit 
 or presence of functions based on the context.
 
 ## Samples from the spec
-The expressions resemble JSONPath.
+The expressions are JSON Path.
 
 ```
 $.store.book
@@ -74,8 +74,13 @@ it("should accept valid input", () => {
 
 
 ## Formal Definitions
-The spec references a [Java library](https://github.com/json-path/JsonPath) for the syntax of the expressions.  
+
+The AWS docs reference a working group for [JSON Path](https://datatracker.ietf.org/wg/jsonpath/about/) whereas it previously referenced a [Java library](https://github.com/json-path/JsonPath).  
 The documentation for the referenced library has more functionality than is supported by the AWS Step Function runtimes.
+
+> There is a an [ABNF grammar](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#name-collected-abnf-grammars) for JSON Path as part of the working group.
+> The parser in this project doesn't use this grammar but should migrate at 
+> some point.
 
 | Expression Feature                                                                                | Path               | Reference Path     | Payload Template   |
 |:--------------------------------------------------------------------------------------------------|:-------------------|:-------------------|:-------------------|
@@ -118,27 +123,27 @@ The schema provided here illustrate how to integrate and includes a recursive de
 
 | Step Function Field            | Expression Type  |
 |--------------------------------|------------------|
-| BooleanEqualsPath              | Path             |
+| BooleanEqualsPath              | Reference Path   |
 | HeartbeatSecondsPath           | Reference Path   |
 | InputPath                      | Path             |
 | ItemsPath                      | Reference Path   |
-| NumericEqualsPath              | Path             |
-| NumericGreaterThanPath         | Path             |
-| NumericLessThanEqualsPath      | Path             |
-| NumericLessThanPath            | Path             |
+| NumericEqualsPath              | Reference Path   |
+| NumericGreaterThanPath         | Reference Path   |
+| NumericLessThanEqualsPath      | Reference Path   |
+| NumericLessThanPath            | Reference Path   |
 | OutputPath                     | Path             |
 | Parameters                     | Payload Template |
 | ResultPath                     | Reference Path   |
 | ResultSelector                 | Payload Template |
 | SecondsPath                    | Reference Path   |
-| StringEqualsPath               | Path             |
-| StringGreaterThanPath          | Path             |
-| StringGreaterThanEqualsPath    | Path             |
-| StringLessThanPath             | Path             |
-| StringLessThanEqualsPath       | Path             |
+| StringEqualsPath               | Reference Path   |
+| StringGreaterThanPath          | Reference Path   |
+| StringGreaterThanEqualsPath    | Reference Path   |
+| StringLessThanPath             | Reference Path   |
+| StringLessThanEqualsPath       | Reference Path   |
 | TimeoutSecondsPath             | Reference Path   |
-| TimestampEqualsPath            | Path             |
-| TimestampGreaterThanEqualsPath | Path             |
-| TimestampGreaterThanPath       | Path             |
-| TimestampLessThanEqualsPath    | Path             |
+| TimestampEqualsPath            | Reference Path   |
+| TimestampGreaterThanEqualsPath | Reference Path   |
+| TimestampGreaterThanPath       | Reference Path   |
+| TimestampLessThanEqualsPath    | Reference Path   |
 | TimestampPath                  | Reference Path   |
