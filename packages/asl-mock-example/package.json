@@ -9,9 +9,8 @@
     ".": "./dist/index.js"
   },
   "scripts": {
-    "asl-mock": "asl-mock",
     "build": "del dist && pnpm generate && tsc",
-    "generate": "pnpm asl-mock -i src/crm-comment.mock.ts -a src/crm-comment.asl.json",
+    "generate": "asl-mock -i src/crm-comment.mock.ts -a src/crm-comment.asl.json",
     "lint": "eslint .",
     "test": "vitest --run",
     "clean": "del .turbo dist coverage src/.asl-puml src/__snapshots__"
