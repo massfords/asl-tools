@@ -10,6 +10,7 @@
     "asl-mock": "./dist/asl-mock.js"
   },
   "scripts": {
+    "prepare": "touch dist/asl-mock.js",
     "build": "del dist && tsc",
     "lint": "eslint .",
     "test": "vitest --run",
