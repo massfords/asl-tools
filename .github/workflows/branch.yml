@@ -23,8 +23,11 @@ jobs:
           node-version: 18
           cache: 'pnpm'
 
+      - name: workaround bin issue
+        run: touch packages/asl-mock/dist/asl-mock.js
+
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --ignore-scripts
 
       - name: Build Monorepo
         run: pnpm build
