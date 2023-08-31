@@ -10,7 +10,7 @@ import { CrmCommentMock, StartMessages } from './crm-comment.mock.js'
 describe('tests for crm-comment.asl.json', () => {
   const TIMEOUT = 30 * 1000
   const outdir = path.join(__dirname, '.asl-puml')
-  let _err: unknown = null
+
   let _aslRunner: AslTestRunner<
     StateMachineNames,
     TestCases,
@@ -20,21 +20,16 @@ describe('tests for crm-comment.asl.json', () => {
   > | null = null
 
   beforeAll(async () => {
-    try {
-      const dirname = new URL('.', import.meta.url).pathname
-      _aslRunner = await AslTestRunner.createRunner<
-        StateMachineNames,
-        TestCases,
-        StateNames,
-        string,
-        CustomErrors
-      >(CrmCommentMock, {
-        'crm-comment': path.join(dirname, 'crm-comment.asl.json'),
-      })
-    } catch (err: unknown) {
-      _err = err
-    }
-  }, TIMEOUT * 6)
+    _aslRunner = await AslTestRunner.createRunner<
+      StateMachineNames,
+      TestCases,
+      StateNames,
+      string,
+      CustomErrors
+    >(CrmCommentMock, {
+      'crm-comment': path.join(new URL('.', import.meta.url).pathname, 'crm-comment.asl.json'),
+    })
+  })
 
   afterEach(() => {
     _aslRunner?.reset()
@@ -55,9 +50,6 @@ describe('tests for crm-comment.asl.json', () => {
       'scenario HappyPathTest',
       async () => {
         expect.hasAssertions()
-        if (_err) {
-          console.error('error starting runner', { err: _err })
-        }
         await _aslRunner?.execute(
           {
             name: 'crm-comment',

@@ -9,11 +9,11 @@
     ".": "./dist/index.js"
   },
   "scripts": {
-    "build": "del dist && tsc",
-    "generate": "pnpm asl-mock -i src/crm-comment.mock.ts -a src/crm-comment.asl.json",
+    "build": "del dist && pnpm generate && tsc",
+    "generate": "asl-mock -i src/crm-comment.mock.ts -a src/crm-comment.asl.json",
     "lint": "eslint .",
     "test": "vitest --run",
-    "clean": "del .turbo dist coverage src/.asl-puml src/crm-comment.asl.test.ts src/__snapshots__"
+    "clean": "del .turbo dist coverage src/.asl-puml src/__snapshots__"
   },
   "devDependencies": {
     "@toolchain/eslint-config": "workspace:*",

@@ -61,6 +61,10 @@ async function generateTestFile(): Promise<void> {
       fail('mockConfigTypeArgs not found in mock config')
       return
     }
+    const outputFile = opts.out ?? outputFileFromInput(opts.input)
+    if (fs.existsSync(outputFile)) {
+      return
+    }
     const output = await emitTestFile({
       testCases: Object.values(stateMachines)[0] as string[],
       aslSourcePath: opts.asl,
@@ -71,7 +75,6 @@ async function generateTestFile(): Promise<void> {
       esm: opts.esm,
       flatEslint: opts.flat,
     })
-    const outputFile = opts.out ?? outputFileFromInput(opts.input)
     fs.writeFileSync(outputFile, output, 'utf-8')
     doneValid()
   } catch (e: unknown) {

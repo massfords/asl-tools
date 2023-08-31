@@ -23,6 +23,9 @@ jobs:
           node-version: 18
           cache: 'pnpm'
 
+      - name: workaround bin issue
+        run: mkdir -p packages/asl-mock/dist && touch packages/asl-mock/dist/asl-mock.js
+
       - name: Install dependencies
         run: pnpm install --ignore-scripts
 
